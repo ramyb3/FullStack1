@@ -69,16 +69,17 @@ function Movies(props)
 
         {props.props.perm.includes("Create Movies") ? 
 
-            <div style={{textAlign: "center"}}><Link to=""><input type="button" value="All Movies" onClick={()=> setAdd(false)} style={{cursor: "pointer"}}/></Link>&nbsp;
-            <Link to="addMovie"><input type="button" value="Add Movie" onClick={()=> ((setAdd(true)),setSearch(''))} style={{cursor: "pointer"}}/></Link><br/><br/></div>
-            : null
+            <div style={{textAlign: "center"}}>
+                <Link to=""><input type="button" value="All Movies" onClick={()=> setAdd(false)} className="button"/></Link>&nbsp;
+                <Link to="addMovie"><input type="button" value="Add Movie" onClick={()=> ((setAdd(true)),setSearch(''))} className="button"/></Link><br/><br/>
+            </div> : null
         }
         
         <Outlet/>
 
         {add==false ? 
 
-            <div style={{textAlign: "center"}}> Find Movie:  <input type="text" onChange={e=>setSearch(e.target.value)}/>
+            <div style={{textAlign: "center"}}> <input placeholder="Find Movie" type="text" onChange={e=>setSearch(e.target.value)}/>
             <input type="button" value="Find" onClick={find} style={{cursor: "pointer"}}/><br/><br/></div> : null 
         }
 
@@ -86,9 +87,10 @@ function Movies(props)
 
             movies.map((item,index)=>
             {
-                return <div key={index}><table style={{width: "500px", textAlign: "center", marginLeft: "auto", marginRight: "auto"}} border="2">
+                return <div key={index}><div className='box1'>
 
                     <h2> {item.Name}, {item.Premiered.slice(0, 4)} </h2>
+
                     <big><b> Genres: </b> 
                     {
                         item.Genres.map((x,index)=>
@@ -102,25 +104,25 @@ function Movies(props)
                     
                     }<br/><br/></big>
                     
-                    <img src={item.Image} width="300px" height="400px"/><br/><br/>
+                    <img src={item.Image} width="60%" height="60%"/><br/><br/>
 
                     {props.props.perm.includes("Update Movies") ? 
 
-                        <Link to={"editMovie/"+ item._id}><input type="button" value="Edit" style={{cursor: "pointer"}}/></Link>
+                        <Link to={"editMovie/"+ item._id}><input type="button" value="Edit" className="button"/></Link>
                         : null
                     }
 
                     {props.props.perm.includes("Delete Movies") ? 
 
-                        <Link to=""><input onClick={()=> edit(item._id)} type="button" value="Delete" style={{cursor: "pointer"}}/></Link>
+                        <Link to=""><input onClick={()=> edit(item._id)} type="button" value="Delete" className="button"/></Link>
                         : null
                     }<br/><br/>
 
                     {props.props.perm.includes("View Subscriptions") ? 
 
-                        <table style={{width: "400px", textAlign: "center", marginLeft: "auto", marginRight: "auto"}} border="1">         
-                        
-                            <big><b><Comp props={item} subs={subs}/></b>
+                        <div className="box2"><big>
+                            
+                            <b><Comp props={item} subs={subs}/></b>
 
                             {
                                 subs.map(i=>
@@ -145,9 +147,9 @@ function Movies(props)
                                         }</ul>
                                     })
                                 })
-                            }</big></table> 
-                        : null
-                    }<br/></table><br/><br/></div>
+                            }
+                        </big></div> : null
+                    }<br/></div><br/></div>
             }): null 
         }
 
