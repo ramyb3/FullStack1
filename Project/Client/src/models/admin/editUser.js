@@ -101,78 +101,82 @@ function EditUser()
         navigate('/main/manageUsers'); 
     }
 
-    return(<div>
+    return(<div style={{textAlign: 'center'}}>
 
         <h2>Edit User Page: {name}</h2>
 
-        <b>First Name:</b> <input type="text" name="Fname" value={user.Fname} onChange={e=> setUser({...user, Fname: e.target.value})} /> <br/>
-        <b>Last Name:</b> <input type="text" name="Lname" value={user.Lname} onChange={e=> setUser({...user, Lname: e.target.value})} /> <br/>
-        <b>User Name:</b> <input type="text" name="Uname" value={user.Uname}  onChange={e=> setUser({...user, Uname: e.target.value})}/> <br/>
-        <b>Session Timeout (Minutes):</b> <input type="number" name="session" value={user.session} min="1" onChange={e=> setUser({...user, session: e.target.value})}/> <br/>
-        <b>Created Date:</b> {user.date} <br/>
-        <b>Permissions:</b> <br/>
-       
-        {perm.includes("View Subscriptions") ?
+        <div className="box"><br/>
+
+            <b>First Name:</b> <input type="text" name="Fname" value={user.Fname} onChange={e=> setUser({...user, Fname: e.target.value})} /> <br/>
+            <b>Last Name:</b> <input type="text" name="Lname" value={user.Lname} onChange={e=> setUser({...user, Lname: e.target.value})} /> <br/>
+            <b>User Name:</b> <input type="text" name="Uname" value={user.Uname}  onChange={e=> setUser({...user, Uname: e.target.value})}/> <br/>
+            <b>Session Timeout (Minutes):</b> <input style={{width: "50px"}} type="number" name="session" value={user.session} min="1" onChange={e=> setUser({...user, session: e.target.value})}/> <br/>
+            <b>Created Date:</b> {user.date} <br/><br/>
+            <b>Permissions:</b> <br/>
         
-            <input type="checkbox" name="View Subscriptions" id="ID1" onClick={clearSubs} checked />  :
-            <input type="checkbox" name="View Subscriptions" id="ID1" onClick={clearSubs}  />
+            {perm.includes("View Subscriptions") ?
+            
+                <input type="checkbox" name="View Subscriptions" id="ID1" onClick={clearSubs} checked />  :
+                <input type="checkbox" name="View Subscriptions" id="ID1" onClick={clearSubs}  />
 
-        } View Subscriptions<br/>
+            } View Subscriptions<br/>
 
-        {perm.includes("Create Subscriptions") ?
-                
-            <input type="checkbox" name="Create Subscriptions" id="ID3" onClick={e=> checkSubs(e)} checked />  :
-            <input type="checkbox" name="Create Subscriptions" id="ID3" onClick={e=> checkSubs(e)} />
+            {perm.includes("Create Subscriptions") ?
+                    
+                <input type="checkbox" name="Create Subscriptions" id="ID3" onClick={e=> checkSubs(e)} checked />  :
+                <input type="checkbox" name="Create Subscriptions" id="ID3" onClick={e=> checkSubs(e)} />
 
-        } Create Subscriptions<br/>
+            } Create Subscriptions<br/>
 
-        {perm.includes("Update Subscriptions") ?
-                
-            <input type="checkbox" name="Update Subscriptions" id="ID4" onClick={e=> checkSubs(e)} checked />  :
-            <input type="checkbox" name="Update Subscriptions" id="ID4" onClick={e=> checkSubs(e)} />
+            {perm.includes("Update Subscriptions") ?
+                    
+                <input type="checkbox" name="Update Subscriptions" id="ID4" onClick={e=> checkSubs(e)} checked />  :
+                <input type="checkbox" name="Update Subscriptions" id="ID4" onClick={e=> checkSubs(e)} />
 
-        } Update Subscriptions<br/>
+            } Update Subscriptions<br/>
 
-        {perm.includes("Delete Subscriptions") ?
-                
-            <input type="checkbox" name="Delete Subscriptions" id="ID5" onClick={e=> checkSubs(e)} checked />  :
-            <input type="checkbox" name="Delete Subscriptions" id="ID5" onClick={e=> checkSubs(e)} />
+            {perm.includes("Delete Subscriptions") ?
+                    
+                <input type="checkbox" name="Delete Subscriptions" id="ID5" onClick={e=> checkSubs(e)} checked />  :
+                <input type="checkbox" name="Delete Subscriptions" id="ID5" onClick={e=> checkSubs(e)} />
 
-        } Delete Subscriptions<br/>
+            } Delete Subscriptions<br/>
 
-        {/*///////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
-      
-        {perm.includes("View Movies") ?
+            {/*///////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
         
-            <input type="checkbox" name="View Movies" id="ID2" onClick={clearMovies} checked />  :
-            <input type="checkbox" name="View Movies" id="ID2" onClick={clearMovies}  />
+            {perm.includes("View Movies") ?
+            
+                <input type="checkbox" name="View Movies" id="ID2" onClick={clearMovies} checked />  :
+                <input type="checkbox" name="View Movies" id="ID2" onClick={clearMovies}  />
 
-        } View Movies<br/>
+            } View Movies<br/>
 
-        {perm.includes("Create Movies") ?
-                
-            <input type="checkbox" name="Create Movies" id="ID6" onClick={e=> checkMovies(e)} checked />  :
-            <input type="checkbox" name="Create Movies" id="ID6" onClick={e=> checkMovies(e)} />
+            {perm.includes("Create Movies") ?
+                    
+                <input type="checkbox" name="Create Movies" id="ID6" onClick={e=> checkMovies(e)} checked />  :
+                <input type="checkbox" name="Create Movies" id="ID6" onClick={e=> checkMovies(e)} />
 
-        } Create Movies<br/>
+            } Create Movies<br/>
 
-        {perm.includes("Update Movies") ?
-                
-            <input type="checkbox" name="Update Movies" id="ID7" onClick={e=> checkMovies(e)} checked />  :
-            <input type="checkbox" name="Update Movies" id="ID7" onClick={e=> checkMovies(e)} />
+            {perm.includes("Update Movies") ?
+                    
+                <input type="checkbox" name="Update Movies" id="ID7" onClick={e=> checkMovies(e)} checked />  :
+                <input type="checkbox" name="Update Movies" id="ID7" onClick={e=> checkMovies(e)} />
 
-        } Update Subscriptions<br/>
+            } Update Subscriptions<br/>
 
-        {perm.includes("Delete Movies") ?
-                
-            <input type="checkbox" name="Delete Movies" id="ID8" onClick={e=> checkMovies(e)} checked />  :
-            <input type="checkbox" name="Delete Movies" id="ID8" onClick={e=> checkMovies(e)} />
+            {perm.includes("Delete Movies") ?
+                    
+                <input type="checkbox" name="Delete Movies" id="ID8" onClick={e=> checkMovies(e)} checked />  :
+                <input type="checkbox" name="Delete Movies" id="ID8" onClick={e=> checkMovies(e)} />
 
-        } Delete Movies<br/><br/>
+            } Delete Movies<br/><br/>
 
-        <input type="button" value="Update" onClick={()=> send(1)} style={{cursor: "pointer"}}/> 
-        <input type="button" value="Cancel" onClick={()=> send(2)} style={{cursor: "pointer"}}/>
+            <input type="button" value="Update" onClick={()=> send(1)} className='button'/> 
+            <input type="button" value="Cancel" onClick={()=> send(2)} className='button'/><br/><br/>
         
+        </div><br/>
+
     </div>)
 }
 
