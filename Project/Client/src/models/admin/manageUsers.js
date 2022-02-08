@@ -24,8 +24,8 @@ function Users()
         <div style={{textAlign: "center"}}>
             <h2 >All Users Page</h2>
 
-            <Link to=""><input type="button" value="All Users" onClick={()=> setAdd(false)} style={{cursor: "pointer"}}/></Link>&nbsp;
-            <Link to="addUser"><input type="button" value="Add User" onClick={()=> setAdd(true)} style={{cursor: "pointer"}}/></Link><br/><br/>
+            <Link to=""><input type="button" value="All Users" onClick={()=> setAdd(false)} className='button'/></Link>&nbsp;
+            <Link to="addUser"><input type="button" value="Add User" onClick={()=> setAdd(true)} className='button'/></Link><br/><br/>
         </div>
 
         <Outlet/>
@@ -34,7 +34,7 @@ function Users()
         
             users.map((item,index)=>
             {
-                return<div key={index}><table style={{textAlign: "center", marginLeft: "auto", marginRight: "auto"}} border="2">  
+                return<div key={index}><div className="box1">
                     
                     <b>Name: </b> {item.name} <br/>
                     <b>User Name: </b> {item.user}<br/>
@@ -44,7 +44,7 @@ function Users()
                         <div> <b>Session Timeout (Minutes): </b> {item.session} <br/> </div> : null
                     }
 
-                    <b>Created Date: </b> {item.date} <br/>
+                    <b>Created Date: </b> {item.date} <br/><br/>
                     <b>Permissions: </b>
                     {
                         item.perm.map((x,index)=>
@@ -63,12 +63,12 @@ function Users()
 
                     <div>
 
-                        <Link to={"editUser/"+ item.id}><input type="button" value="Edit" style={{cursor: "pointer"}}/></Link>
-                        <Link to=""><input onClick={()=> edit(item.id)} type="button" value="Delete" style={{cursor: "pointer"}}/></Link>
+                        <Link to={"editUser/"+ item.id}><input type="button" value="Edit" className='button'/></Link>
+                        <Link to=""><input onClick={()=> edit(item.id)} type="button" value="Delete" className='button'/></Link>
                     
                     </div> : null}
                     
-                </table><br/><br/></div>
+                </div><br/><br/></div>
             })  : null 
         }
 
