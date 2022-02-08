@@ -39,19 +39,23 @@ function AddMember(props)
         navigate('/main/subscriptions'); 
     }
 
-    return(<div>
+    return(<div style={{textAlign: 'center'}}>
 
-        <h2>Add Member Page</h2>
+        <div className="box">
 
-        Enter the name of the member: <input type="text" onChange={e=> setMember({...member, name: e.target.value})} /><br/><br/>
+            <h2>Add Member Page</h2>
 
-        Enter the member's email: <input type="email" onChange={e=> setMember({...member, email: e.target.value})} /><br/><br/>
+            <input placeholder="Enter Name" type="text" onChange={e=> setMember({...member, name: e.target.value})} /><br/>
 
-        Enter the member's city: <input type="text" onChange={e=> setMember({...member, city: e.target.value})} /><br/><br/>
+            <input placeholder="Enter Email" type="email" onChange={e=> setMember({...member, email: e.target.value})} /><br/>
 
-        <input type="button" value="Save" onClick={()=> send(1)} style={{cursor: "pointer"}}/> 
-        <input type="button" value="Cancel" onClick={()=> send(2)} style={{cursor: "pointer"}}/>
+            <input placeholder="Enter City" type="text" onChange={e=> setMember({...member, city: e.target.value})} /><br/><br/>
+
+            <input type="button" value="Save" onClick={()=> send(1)} className="button"/> 
+            <input type="button" value="Cancel" onClick={()=> send(2)} className="button"/><br/><br/>
         
+        </div>
+
     </div>)
 }
 
