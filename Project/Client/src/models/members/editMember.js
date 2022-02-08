@@ -45,18 +45,22 @@ function EditMember(props)
         navigate('/main/subscriptions'); 
     }
 
-    return(<div>
+    return(<div style={{textAlign: 'center'}}>
 
         <h2>Edit Member Page</h2>
 
-        Enter the name of the member: <input type="text" value={member.name} onChange={e=> setMember({...member, name: e.target.value})}/><br/><br/>
+        <div className="box"><br/>
 
-        Enter the member's email: <input type="email" value={member.email} onChange={e=> setMember({...member, email: e.target.value})}/><br/><br/>
+            Enter the name of the member:<br/> <input type="text" value={member.name} onChange={e=> setMember({...member, name: e.target.value})}/><br/><br/>
 
-        Enter the member's city: <input type="text" value={member.city} onChange={e=> setMember({...member, city: e.target.value})}/><br/><br/>
+            Enter the member's email:<br/> <input type="email" value={member.email} onChange={e=> setMember({...member, email: e.target.value})}/><br/><br/>
 
-        <input type="button" value="Update" onClick={()=> send(1)} style={{cursor: "pointer"}}/> 
-        <input type="button" value="Cancel" onClick={()=> send(2)} style={{cursor: "pointer"}}/>
+            Enter the member's city:<br/> <input type="text" value={member.city} onChange={e=> setMember({...member, city: e.target.value})}/><br/><br/>
+
+            <input type="button" value="Update" onClick={()=> send(1)} className="button"/> 
+            <input type="button" value="Cancel" onClick={()=> send(2)} className="button"/><br/><br/>
+
+        </div>
 
     </div>)
 }
