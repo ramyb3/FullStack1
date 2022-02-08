@@ -23,15 +23,29 @@ function Login(props)
         }
     }
 
-    return(<div>
+    return(<div style={{textAlign: 'center'}}>
 
-        <h2>Login Page</h2>
-                   
-        User Name: <input type="text" onChange={e=> setUser({...user, user: e.target.value})} /><br/><br/>
-        Password: <input type="password" onChange={e=> setUser({...user, psw: e.target.value})}/><br/><br/>
-        <input type="button" value="Login" onClick={send} style={{cursor: "pointer"}}/><br/><br/>
+        <div className="box">
 
-        <Link to="/create">CLICK ME IF YOU A NEW USER</Link> <br/>
+            <h2>Login Page</h2>
+                    
+            <input placeholder="Enter User Name" type="text" onChange={e=> setUser({...user, user: e.target.value})} /><br/><br/>
+            <input placeholder="Enter Password" type="password" onChange={e=> setUser({...user, psw: e.target.value})}/><br/><br/>
+            <input type="button" value="Login" onClick={send} className="button"/><br/><br/>
+
+            <Link to="/create">CLICK ME IF YOU A NEW USER</Link> <br/><br/>
+
+        </div>
+
+        <h2>Login Instructions:</h2>
+
+        UserName - admin<br/>
+        Password - a<br/><br/>
+
+        You can do whatever you want including add/edit/delete users.<br/><br/>
+
+        **If you want to get limited access, you must create another user by adding new one in user management page,<br/>
+        then logout and click the link below login button, choose a password to your new user and log in to the site.<br/><br/>
 
     </div>)
 }
