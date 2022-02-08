@@ -1,5 +1,6 @@
 import {Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
+import './App.css'
 
 import LoginComp from './models/other/login';
 import CreateComp from './models/other/create';
@@ -22,7 +23,9 @@ function App()
 
     return (<div>
 
-        <h1 style={{textAlign: "center"}}>Movies - Subscriptions Web Site</h1>
+        <div style={{textAlign: "center"}}>This site has been uploaded with the help of Avi Koenig </div> 
+
+        <h1 style={{textAlign: "center", color: 'rgb(109, 65, 67)'}}>Movies - Subscriptions Web Site</h1>
 
         <Routes>
 
@@ -32,21 +35,15 @@ function App()
             <Route path="/main" element={<MainComp props={props} callback={data=> setProps(data)}/>} >
 
                 <Route path="movies" element={<MoviesComp props={props}/>} >
-
                     <Route path="addMovie" element={<AddMovieComp props={props}/>} />
-
                 </Route>
 
                 <Route path="subscriptions" element={<SubsComp props={props}/>} >
-
                     <Route path="addMember" element={<AddMemberComp props={props}/>} />
-
                 </Route>
 
                 <Route path="manageUsers" element={<UsersComp />} >
-
                     <Route path="addUser" element={<AddUserComp />} />
-
                 </Route>
 
                 <Route path="manageUsers/editUser/:id" element={<EditUserComp props={props}/>} />
@@ -57,7 +54,7 @@ function App()
                 <Route path="subscriptions/:id" element={<MemberComp props={props}/>} />
 
             </Route>
-        </Routes>     
+        </Routes>   
 
     </div>);
 }
