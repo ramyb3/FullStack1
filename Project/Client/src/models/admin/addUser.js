@@ -65,27 +65,31 @@ function AddUser()
         navigate('/main/manageUsers'); 
     }
 
-    return(<div>
+    return(<div style={{textAlign: 'center'}}>
         
-        <h2 >Add User Page</h2>
+        <div className="box">
 
-        <b>First Name:</b> <input type="text" onChange={e=> setUser({...user,Fname: e.target.value})}/> <br/>
-        <b>Last Name:</b> <input type="text" onChange={e=> setUser({...user,Lname: e.target.value})}/> <br/>
-        <b>User Name:</b> <input type="text" onChange={e=> setUser({...user,Uname: e.target.value})}/> <br/>
-        <b>Session Timeout (Minutes):</b> <input type="number" min="1" onChange={e=> setUser({...user,session: e.target.value})}/> <br/>
-        <b>Permissions:</b> <br/>
+            <h2 >Add User Page</h2>
 
-        <input type="checkbox" id="ID1" onClick={clearSubs} onChange={e=> setVS(e.target.checked)}/> View Subscriptions <br/>
-        <input type="checkbox" id="ID3" onClick={checkSubs} onChange={e=> setUser({...user, CS: e.target.checked})}/> Create Subscriptions <br/>
-        <input type="checkbox" id="ID4" onClick={checkSubs} onChange={e=> setUser({...user, US: e.target.checked})}/> Update Subscriptions <br/>
-        <input type="checkbox" id="ID5" onClick={checkSubs} onChange={e=> setUser({...user, DS: e.target.checked})}/> Delete Subscriptions <br/>
-        <input type="checkbox" id="ID2" onClick={clearMovies} onChange={e=> setVM(e.target.checked)}/> View Movies <br/>
-        <input type="checkbox" id="ID6" onClick={checkMovies} onChange={e=> setUser({...user, CM: e.target.checked})}/> Create Movies <br/>
-        <input type="checkbox" id="ID7" onClick={checkMovies} onChange={e=> setUser({...user, UM: e.target.checked})}/> Update Movies <br/>
-        <input type="checkbox" id="ID8" onClick={checkMovies} onChange={e=> setUser({...user, DM: e.target.checked})}/> Delete Movies <br/><br/>
+            <input placeholder="First Name" type="text" onChange={e=> setUser({...user,Fname: e.target.value})}/> <br/>
+            <input placeholder="Last Name" type="text" onChange={e=> setUser({...user,Lname: e.target.value})}/> <br/>
+            <input placeholder="User Name" type="text" onChange={e=> setUser({...user,Uname: e.target.value})}/> <br/>
+            <input placeholder="Session Timeout- Minutes" type="number" min="1" onChange={e=> setUser({...user,session: e.target.value})}/> <br/><br/>
+            
+            <b>Permissions:</b> <br/>
+            <input type="checkbox" id="ID1" onClick={clearSubs} onChange={e=> setVS(e.target.checked)}/> View Subscriptions <br/>
+            <input type="checkbox" id="ID3" onClick={checkSubs} onChange={e=> setUser({...user, CS: e.target.checked})}/> Create Subscriptions <br/>
+            <input type="checkbox" id="ID4" onClick={checkSubs} onChange={e=> setUser({...user, US: e.target.checked})}/> Update Subscriptions <br/>
+            <input type="checkbox" id="ID5" onClick={checkSubs} onChange={e=> setUser({...user, DS: e.target.checked})}/> Delete Subscriptions <br/>
+            <input type="checkbox" id="ID2" onClick={clearMovies} onChange={e=> setVM(e.target.checked)}/> View Movies <br/>
+            <input type="checkbox" id="ID6" onClick={checkMovies} onChange={e=> setUser({...user, CM: e.target.checked})}/> Create Movies <br/>
+            <input type="checkbox" id="ID7" onClick={checkMovies} onChange={e=> setUser({...user, UM: e.target.checked})}/> Update Movies <br/>
+            <input type="checkbox" id="ID8" onClick={checkMovies} onChange={e=> setUser({...user, DM: e.target.checked})}/> Delete Movies <br/><br/>
 
-        <input type="button" value="Save" onClick={()=> send(1)} style={{cursor: "pointer"}}/> 
-        <input type="button" value="Cancel" onClick={()=> send(2)} style={{cursor: "pointer"}}/><br/><br/>
+            <input type="button" value="Save" onClick={()=> send(1)} className='button'/> 
+            <input type="button" value="Cancel" onClick={()=> send(2)} className='button'/><br/><br/>
+
+        </div><br/>
 
     </div>)
 }
