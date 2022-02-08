@@ -25,13 +25,17 @@ function Create()
         alert("YOU MUST ENTER USERNAME AND PASSWORD!!");   
     }
 
-    return(<div>
+    return(<div style={{textAlign: 'center'}}>
 
-        <h2>Create Account Page</h2>
+        <div className='box'>
+            
+            <h2>Create Account Page</h2>
+            
+            Enter the User Name that the ADMIN gave you:<br/> <input type="text" onChange={e=> setUser({...user, user: e.target.value})}/><br/><br/>
+            <input placeholder="Enter Password" type="password" onChange={e=> setUser({...user, psw: e.target.value})}/><br/><br/>
+            <input type="button" value="Create" onClick={send} className="button"/><br/><br/>
         
-        Enter the User Name that the ADMIN gave you: <input type="text" onChange={e=> setUser({...user, user: e.target.value})}/><br/><br/>
-        Enter a Password: <input type="password" onChange={e=> setUser({...user, psw: e.target.value})}/><br/><br/>
-        <input type="button" value="Create" onClick={send} style={{cursor: "pointer"}}/><br/><br/>
+        </div>
 
     </div>)
 }
