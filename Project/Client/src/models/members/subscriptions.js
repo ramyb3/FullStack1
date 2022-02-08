@@ -70,9 +70,10 @@ function Subs(props)
 
         {props.props.perm.includes("Create Subscriptions") ? 
 
-            <div style={{textAlign: "center"}}><Link to=""><input type="button" value="All Members" onClick={()=> setAdd(false)} style={{cursor: "pointer"}}/></Link>&nbsp;
-            <Link to="addMember"><input type="button" value="Add Member" onClick={()=> setAdd(true)} style={{cursor: "pointer"}}/></Link><br/><br/></div>
-            : null
+            <div style={{textAlign: "center"}}>
+                <Link to=""><input type="button" value="All Members" onClick={()=> setAdd(false)} className="button"/></Link>&nbsp;
+                <Link to="addMember"><input type="button" value="Add Member" onClick={()=> setAdd(true)} className="button"/></Link><br/><br/>
+            </div> : null
         }
         
         <Outlet/>
@@ -81,7 +82,7 @@ function Subs(props)
 
             members.map((item,index)=>
             {
-                return <div><table style={{width: "600px", textAlign: "center", marginLeft: "auto", marginRight: "auto"}} border="2" key={index}> 
+                return <div key={index}><div className='box1' style={{width: '27em'}}> 
                     
                     <h2> {item.Name} </h2>
 
@@ -92,62 +93,62 @@ function Subs(props)
 
                     {props.props.perm.includes("Update Subscriptions") ? 
 
-                        <Link to={"editMember/"+ item._id}><input type="button" value="Edit" style={{cursor: "pointer"}}/></Link>
+                        <Link to={"editMember/"+ item._id}><input type="button" value="Edit" className="button"/></Link>
                         : null
                     }
 
                     {props.props.perm.includes("Delete Subscriptions") ? 
 
-                        <Link to=""><input onClick={()=> edit(item._id)} type="button" value="Delete" style={{cursor: "pointer"}}/></Link>
+                        <Link to=""><input onClick={()=> edit(item._id)} type="button" value="Delete" className="button"/></Link>
                         : null
                     }<br/><br/>
                     
                     {props.props.perm.includes("View Movies") ? 
 
-                    <table style={{width: "500px", textAlign: "center", marginLeft: "auto", marginRight: "auto"}} border="1" > <big><b><Comp1 props={item} subs={subs}/></b><br/>
+                        <div className="box2" style={{width: '26em'}}><big>
+                            
+                            <b><Comp1 props={item} subs={subs}/></b><br/>
 
-                        {
-                            subs.map(i=>
                             {
-                                return<ul>{i.MemberId == item._id ?
-                                    
-                                    <div>{i.Movies.map(j=>
-                                    {        
-                                        return<li>{movies.map(k=>
-                                        {
-                                            return<div>{j.MovieId == k._id ?
-                                                        
-                                                <div><Link to={'/main/movies/'+j.MovieId}>{k.Name}</Link>&nbsp;,&nbsp;    
- 
-                                                {j.Date.slice(8,10)}/{j.Date.slice(5,7)}/{j.Date.slice(0,4)}</div>
+                                subs.map(i=>
+                                {
+                                    return<ul>{i.MemberId == item._id ?
+                                        
+                                        <div>{i.Movies.map(j=>
+                                        {        
+                                            return<li>{movies.map(k=>
+                                            {
+                                                return<div>{j.MovieId == k._id ?
+                                                            
+                                                    <div><Link to={'/main/movies/'+j.MovieId}>{k.Name}</Link>&nbsp;,&nbsp;    
+    
+                                                    {j.Date.slice(8,10)}/{j.Date.slice(5,7)}/{j.Date.slice(0,4)}</div>
 
-                                                : null
-                                            }</div>
+                                                    : null
+                                                }</div>
+                                            })
+                                            }</li>    
                                         })
-                                        }</li>    
-                                    })
-                                    } </div>: null
-                                }</ul>
-                            })
-                        }
+                                        } </div>: null
+                                    }</ul>
+                                })
+                            }
 
-                        <input type="button" value="Subscribe to a new movie" onClick={()=>showORhide(item._id)} style={{cursor: "pointer"}}/>
-                        
-                        <div id={item._id} style={{visibility: "hidden"}}><br/>
+                            <input type="button" value="Subscribe to a new movie" onClick={()=>showORhide(item._id)} className="button"/>
                             
-                            <b> Add a new movie: </b><br/><br/>
+                            <div id={item._id} style={{visibility: "hidden"}}><br/>
+                                
+                                <b> Add a new movie: </b><br/><br/>
 
-                            <Comp2 callback={data=>setNew({...sub, movie: data})} props={item} movies={movies} subs={subs}/><br/>
+                                <Comp2 callback={data=>setNew({...sub, movie: data})} props={item} movies={movies} subs={subs}/><br/>
 
-                            <input type="date" onChange={e=> setNew({...sub, id: item._id, date: e.target.value})}/><br/><br/>
-                            <Link to=""><input onClick={send} type="button" value="Subscribe" style={{cursor: "pointer"}}/></Link>
-                            
-                        </div>
+                                <input type="date" onChange={e=> setNew({...sub, id: item._id, date: e.target.value})}/><br/><br/>
+                                <Link to=""><input onClick={send} type="button" value="Subscribe" className="button"/></Link>
+                                
+                            </div>
 
-                    </big></table>
-
-                    : null
-                }</table><br/><br/></div>
+                        </big></div> : null
+                    }</div><br/></div>
             }) : null
         }  
 
