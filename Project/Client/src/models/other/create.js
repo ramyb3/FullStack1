@@ -33,7 +33,7 @@ function Create()
             
             Enter the User Name that the ADMIN gave you:<br/> <input type="text" onChange={e=> setUser({...user, user: e.target.value})}/><br/><br/>
             <input placeholder="Enter Password" type="password" onChange={e=> setUser({...user, psw: e.target.value})}/><br/><br/>
-            <input type="button" value="Create" onClick={send} className="button"/><br/><br/>
+            <input type="button" value="Create" onClick={send} /><br/><br/>
         
         </div>
 
