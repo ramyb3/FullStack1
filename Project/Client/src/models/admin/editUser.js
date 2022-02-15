@@ -172,8 +172,8 @@ function EditUser()
 
             } Delete Movies<br/><br/>
 
-            <input type="button" value="Update" onClick={()=> send(1)} className='button'/> 
-            <input type="button" value="Cancel" onClick={()=> send(2)} className='button'/><br/><br/>
+            <input type="button" value="Update" onClick={()=> send(1)} /> 
+            <input type="button" value="Cancel" onClick={()=> send(2)} /><br/><br/>
         
         </div><br/>
 
