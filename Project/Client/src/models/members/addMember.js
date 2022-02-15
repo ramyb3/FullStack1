@@ -51,8 +51,8 @@ function AddMember(props)
 
             <input placeholder="Enter City" type="text" onChange={e=> setMember({...member, city: e.target.value})} /><br/><br/>
 
-            <input type="button" value="Save" onClick={()=> send(1)} className="button"/> 
-            <input type="button" value="Cancel" onClick={()=> send(2)} className="button"/><br/><br/>
+            <input type="button" value="Save" onClick={()=> send(1)} /> 
+            <input type="button" value="Cancel" onClick={()=> send(2)} /><br/><br/>
         
         </div>
 
