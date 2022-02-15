@@ -56,13 +56,13 @@ function Movie(props)
 
             {props.props.perm.includes("Update Movies") ? 
 
-                <Link to={"/main/movies/editMovie/"+ movie.id}><input type="button" value="Edit" className="button"/></Link>
+                <Link to={"/main/movies/editMovie/"+ movie.id}><input type="button" value="Edit" /></Link>
                 : null
             }
 
             {props.props.perm.includes("Delete Movies") ? 
 
-                <Link to="/main/movies"><input onClick={edit} type="button" value="Delete" className="button"/></Link>
+                <Link to="/main/movies"><input onClick={edit} type="button" value="Delete" /></Link>
                 : null
             }<br/><br/>
 
