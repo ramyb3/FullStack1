@@ -79,13 +79,13 @@ function Member(props)
 
             {props.props.perm.includes("Update Subscriptions") ? 
 
-                <Link to={"/main/subscriptions/editMember/"+ member.id}><input type="button" value="Edit" className="button"/></Link>
+                <Link to={"/main/subscriptions/editMember/"+ member.id}><input type="button" value="Edit" /></Link>
                 : null
             }
 
             {props.props.perm.includes("Delete Subscriptions") ? 
 
-                <Link to={"/main/subscriptions"}><input onClick={edit} type="button" value="Delete" className="button"/></Link>
+                <Link to={"/main/subscriptions"}><input onClick={edit} type="button" value="Delete" /></Link>
                 : null
             }<br/><br/>
 
@@ -119,7 +119,7 @@ function Member(props)
                     }    
                     </ul>
 
-                    <input type="button" value="Subscribe to a new movie" onClick={()=>showORhide(member.id)} className="button"/>
+                    <input type="button" value="Subscribe to a new movie" onClick={()=>showORhide(member.id)} />
 
                     <div id={member.id} style={{visibility: "hidden"}}><br/>
                                 
@@ -139,7 +139,7 @@ function Member(props)
                         </select><br/>
 
                         <input type="date" onChange={e=> setNew({...sub, date: e.target.value})}/><br/><br/>
-                        <input onClick={send} type="button" value="Subscribe" className="button"/>
+                        <input onClick={send} type="button" value="Subscribe" />
                                 
                     </div>
                 </big>
