@@ -86,8 +86,8 @@ function AddUser()
             <input type="checkbox" id="ID7" onClick={checkMovies} onChange={e=> setUser({...user, UM: e.target.checked})}/> Update Movies <br/>
             <input type="checkbox" id="ID8" onClick={checkMovies} onChange={e=> setUser({...user, DM: e.target.checked})}/> Delete Movies <br/><br/>
 
-            <input type="button" value="Save" onClick={()=> send(1)} className='button'/> 
-            <input type="button" value="Cancel" onClick={()=> send(2)} className='button'/><br/><br/>
+            <input type="button" value="Save" onClick={()=> send(1)} /> 
+            <input type="button" value="Cancel" onClick={()=> send(2)} /><br/><br/>
 
         </div><br/>
 
