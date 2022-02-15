@@ -202,8 +202,8 @@ function EditMovie(props)
 
             Enter the date the movie premiered: <br/><input type="date" value={movie.date} onChange={e=> setMovie({...movie, date: e.target.value})}/><br/><br/>
 
-            <input type="button" value="Update" onClick={()=> send(1)} className="button"/> 
-            <input type="button" value="Cancel" onClick={()=> send(2)} className="button"/><br/><br/>
+            <input type="button" value="Update" onClick={()=> send(1)} /> 
+            <input type="button" value="Cancel" onClick={()=> send(2)} /><br/><br/>
 
         </div><br/>
 
