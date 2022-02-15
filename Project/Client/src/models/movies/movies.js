@@ -70,8 +70,8 @@ function Movies(props)
         {props.props.perm.includes("Create Movies") ? 
 
             <div style={{textAlign: "center"}}>
-                <Link to=""><input type="button" value="All Movies" onClick={()=> setAdd(false)} className="button"/></Link>&nbsp;
-                <Link to="addMovie"><input type="button" value="Add Movie" onClick={()=> ((setAdd(true)),setSearch(''))} className="button"/></Link><br/><br/>
+                <Link to=""><input type="button" value="All Movies" onClick={()=> setAdd(false)} /></Link>&nbsp;
+                <Link to="addMovie"><input type="button" value="Add Movie" onClick={()=> ((setAdd(true)),setSearch(''))} /></Link><br/><br/>
             </div> : null
         }
         
@@ -80,9 +80,9 @@ function Movies(props)
         {add==false ? 
 
             <div style={{textAlign: "center"}}> <input placeholder="Find Movie" type="text" onChange={e=>setSearch(e.target.value)}/>
-            <input type="button" value="Find" onClick={find} style={{cursor: "pointer"}}/><br/><br/></div> : null 
+            <input type="button" value="Find" onClick={find} style={{fontSize: '14px', height: '22px'}} /><br/><br/></div> : null 
         }
-
+        
         {add==false ? 
 
             movies.map((item,index)=>
@@ -108,13 +108,13 @@ function Movies(props)
 
                     {props.props.perm.includes("Update Movies") ? 
 
-                        <Link to={"editMovie/"+ item._id}><input type="button" value="Edit" className="button"/></Link>
+                        <Link to={"editMovie/"+ item._id}><input type="button" value="Edit" /></Link>
                         : null
                     }
 
                     {props.props.perm.includes("Delete Movies") ? 
 
-                        <Link to=""><input onClick={()=> edit(item._id)} type="button" value="Delete" className="button"/></Link>
+                        <Link to=""><input onClick={()=> edit(item._id)} type="button" value="Delete" /></Link>
                         : null
                     }<br/><br/>
 
