@@ -22,7 +22,7 @@
     text-align: center;
 }
 
-.button
+input[type=button]
 {
     cursor: pointer;
     font-size: 18px;
