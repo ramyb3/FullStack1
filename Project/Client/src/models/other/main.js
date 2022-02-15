@@ -13,20 +13,20 @@ function Main(props)
  
         {props.props.perm.includes("View Movies") ?
 
-            <Link to="movies"><input type="button" value="Movies" className="button"/></Link> : null
+            <Link to="movies"><input type="button" value="Movies" /></Link> : null
         }&nbsp;
 
         {props.props.perm.includes("View Subscriptions") ?  
             
-            <Link to="subscriptions"><input type="button" value="Subscriptions" className="button"/></Link> : null
+            <Link to="subscriptions"><input type="button" value="Subscriptions" /></Link> : null
         }&nbsp;
 
         {props.props.name=="admin" ? 
 
-            <Link to="manageUsers"><input type="button" value="Users Management" className="button"/></Link> : null
+            <Link to="manageUsers"><input type="button" value="Users Management" /></Link> : null
         }&nbsp;
 
-        <Link to="/"><input type="button" value="Logout" onClick={reset} className="button"/></Link> <br/>
+        <Link to="/"><input type="button" value="Logout" onClick={reset} /></Link> <br/>
         
         <Outlet />
 
