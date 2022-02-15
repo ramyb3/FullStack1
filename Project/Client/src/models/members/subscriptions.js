@@ -71,8 +71,8 @@ function Subs(props)
         {props.props.perm.includes("Create Subscriptions") ? 
 
             <div style={{textAlign: "center"}}>
-                <Link to=""><input type="button" value="All Members" onClick={()=> setAdd(false)} className="button"/></Link>&nbsp;
-                <Link to="addMember"><input type="button" value="Add Member" onClick={()=> setAdd(true)} className="button"/></Link><br/><br/>
+                <Link to=""><input type="button" value="All Members" onClick={()=> setAdd(false)} /></Link>&nbsp;
+                <Link to="addMember"><input type="button" value="Add Member" onClick={()=> setAdd(true)} /></Link><br/><br/>
             </div> : null
         }
         
@@ -93,13 +93,13 @@ function Subs(props)
 
                     {props.props.perm.includes("Update Subscriptions") ? 
 
-                        <Link to={"editMember/"+ item._id}><input type="button" value="Edit" className="button"/></Link>
+                        <Link to={"editMember/"+ item._id}><input type="button" value="Edit" /></Link>
                         : null
                     }
 
                     {props.props.perm.includes("Delete Subscriptions") ? 
 
-                        <Link to=""><input onClick={()=> edit(item._id)} type="button" value="Delete" className="button"/></Link>
+                        <Link to=""><input onClick={()=> edit(item._id)} type="button" value="Delete" /></Link>
                         : null
                     }<br/><br/>
                     
@@ -134,7 +134,7 @@ function Subs(props)
                                 })
                             }
 
-                            <input type="button" value="Subscribe to a new movie" onClick={()=>showORhide(item._id)} className="button"/>
+                            <input type="button" value="Subscribe to a new movie" onClick={()=>showORhide(item._id)} />
                             
                             <div id={item._id} style={{visibility: "hidden"}}><br/>
                                 
@@ -143,7 +143,7 @@ function Subs(props)
                                 <Comp2 callback={data=>setNew({...sub, movie: data})} props={item} movies={movies} subs={subs}/><br/>
 
                                 <input type="date" onChange={e=> setNew({...sub, id: item._id, date: e.target.value})}/><br/><br/>
-                                <Link to=""><input onClick={send} type="button" value="Subscribe" className="button"/></Link>
+                                <Link to=""><input onClick={send} type="button" value="Subscribe" /></Link>
                                 
                             </div>
 
