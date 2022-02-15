@@ -7,13 +7,19 @@ function Login(props)
     const navigate =  useNavigate();
 
     const [user,setUser]= useState({user:'', psw: ''});
+    const [loading,setLoading]= useState(false);
 
     const send= async()=>
     {
+        setLoading(true);
+
         let resp= await axios.post('http://localhost:7000/data/main', user);
 
         if(resp.data=="THE USERNAME OR PASSWORD IS INCORRECT!!")
-        alert(resp.data);
+        {
+            alert(resp.data);
+            setLoading(false);
+        }
 
         else
         {
@@ -31,7 +37,9 @@ function Login(props)
                     
             <input placeholder="Enter User Name" type="text" onChange={e=> setUser({...user, user: e.target.value})} /><br/><br/>
             <input placeholder="Enter Password" type="password" onChange={e=> setUser({...user, psw: e.target.value})}/><br/><br/>
-            <input type="button" value="Login" onClick={send} className="button"/><br/><br/>
+            <input type="button" value="Login" onClick={send} /><br/>
+
+            {loading==true? <h3>Loading...</h3> : <br/>}
 
             <Link to="/create">CLICK ME IF YOU A NEW USER</Link> <br/><br/>
 
